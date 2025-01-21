@@ -1,5 +1,5 @@
 #include "../drivers/memalloc.h"// My first (Sucessful) attempt of using ai to code
-#include "../drivers/vga.h" //Ian driver go brrrrrrrrrrrrrrrrrr, also does not print int or float 
+#include "../drivers/vga.h" //SCP 049 driver go brrrrrrrrrrrrrrrrrr, also does not print int or float 
 #include "../drivers/inpt.h"//mine(Nothing rn)
 void print_str(char string[]);
 

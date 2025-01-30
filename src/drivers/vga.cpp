@@ -36,15 +36,27 @@ extern VGATextMode VIDEO;
 void VGATextMode::write_byte(char byte) {
     int pos = (y_pos * TEXT_MODE_WIDTH + x_pos) * 2;
     Color color = Yellow;
-
-    address[pos] = byte;
-    address[pos + 1] = color;
+    if (byte == '\n')
+    {
+        VIDEO.x_pos = -1;
+        VIDEO.y_pos = VIDEO.y_pos + 1;
+    }
+    else
+    {
+        address[pos] = byte;
+        address[pos + 1] = color;
+    }
     if (x_pos == TEXT_MODE_WIDTH) {
         x_pos = 0;
         y_pos++;
     } else {
         x_pos++;
     }
+}
+void mvpos (int x, int y)
+{
+    VIDEO.x_pos = x;
+    VIDEO.y_pos = y;
 }
 
 VGATextMode VIDEO;
@@ -54,10 +66,10 @@ void init_text_vga() {
     VIDEO.x_pos = 0;
     VIDEO.y_pos = 0;
 }
-
 void print(const char* string) {
     while (*string != '\0') {
         VIDEO.write_byte(*string);
         string++;
     }
+    
 }

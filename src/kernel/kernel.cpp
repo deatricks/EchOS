@@ -6,9 +6,17 @@ void main()
 {
     init_text_vga();
     print("EchOS\n");
-    print("Developed by deatricks");
-    int a = 7;
-    int *ptr = (int*)my_calloc(a, sizeof(int));
+    print("Developed by deatricks \n");
+    /*int* a;
+    int n, i;*/
+     int n = 20;
+    /*a = (int*)my_calloc(n, sizeof(int));
+    for (i = 0; i < n; ++i) {
+        a[i] = i + 1;
+    }
+    for (i = 0; i < n; ++i) {
+        printint(a[i]);
+    }*/
+    print("\n"); 
+    printint(n);
 }
-
-

@@ -29,13 +29,19 @@ class VGATextMode {
         int y_pos;
 
         void write_byte(char byte);
+        void write_int(int num) 
+        {
+            write_byte('0'+ num);
+        }
 };
 
 extern VGATextMode VIDEO;
 
+
+
 void VGATextMode::write_byte(char byte) {
     int pos = (y_pos * TEXT_MODE_WIDTH + x_pos) * 2;
-    Color color = Yellow;
+    Color color = LightGreen;
     if (byte == '\n')
     {
         VIDEO.x_pos = -1;
@@ -72,4 +78,50 @@ void print(const char* string) {
         string++;
     }
     
+}
+void printint(int num)
+{
+    for(int i = 1; i < num * 10; i = i * 10)
+    {
+        if ((num % i) == 1)
+        {
+            VIDEO.write_int((num / i));
+        }
+        else if ((num % i) == 2)
+        {
+            VIDEO.write_int((num / i));
+        }
+        else if ((num % i) == 3)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 4)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 5)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 6)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 7)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 8)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else if ((num % i) == 9)
+        {
+            VIDEO.write_int((num / i));
+        }   
+        else
+        {
+            VIDEO.write_int((0));
+        }       
+    }
 }
